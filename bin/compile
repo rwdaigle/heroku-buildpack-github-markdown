@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ls -al
+
 for f in *.md
 do
   echo -n "       Sending $f to GitHub for rendering..."

@@ -1,11 +1,16 @@
 #!/bin/bash
 
+TEMPLATE_HEADER="<html><head><link href=\"$STYLESHEET_URL\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" /></head><body>"
+TEMPLATE_FOOTER="</body></html>"
+
 cd $1
 
 for f in *.md
 do
   echo -n "       Sending $f to GitHub for rendering..."
-  curl -d @$f -H "Content-Type:text/plain" -s https://api.github.com/markdown/raw > $f.html
+  HTML=`curl -d @$f -H "Content-Type:text/plain" -s https://api.github.com/markdown/raw`
+  echo $TEMPLATE_HEADER >> echo $HTML >> echo $TEMPLATE_FOOTER > $f.html
   rename s/.md// $f.html
+  rm $f
   echo "done"
 done

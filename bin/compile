@@ -1,7 +1,6 @@
 #!/bin/bash
 
-FILES=*.md
-for f in $FILES
+for f in *.md
 do
   echo -n "       Sending $f to GitHub for rendering..."
   curl -d @$f -H "Content-Type:text/plain" -s https://api.github.com/markdown/raw > $f.html

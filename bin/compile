@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "-----> Sending to GitHub for rendering..."

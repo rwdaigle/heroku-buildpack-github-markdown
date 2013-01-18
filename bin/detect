@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ -f $1/*.(md|mdown|markdown) ]; then
+if [ -f $1/*.md ]; then
   echo "GitHub Markdown"
   exit 0
 else

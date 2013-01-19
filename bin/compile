@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TEMPLATE_HEADER="<html><head><link href=\"$STYLESHEET_URL\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" /></head><body style=\"width: $BODY_WIDTHpx;\">"
+TEMPLATE_HEADER="<html><head><link href=\"$STYLESHEET_URL\" media=\"all\" rel=\"stylesheet\" type=\"text/css\" /></head><body>"
 TEMPLATE_FOOTER="</body></html>"
 
 cd $1

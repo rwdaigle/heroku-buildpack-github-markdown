@@ -1,6 +1,6 @@
 # GitHub Markdown Buildpack
 
-This Heroku buildpack allows you to deploy raw markdown file(s) which will get rendered with GitHub's Markdown parser and served via a simple web server. See this project's [README rendered here](http://afternoon-peak-2333.herokuapp.com/).
+This [Heroku buildpack](https://github.com/rwdaigle/heroku-buildpack-github-markdown) allows you to deploy raw markdown file(s) which will get rendered with GitHub's Markdown parser and served via a simple web server. See this project's [README rendered here](http://afternoon-peak-2333.herokuapp.com/).
 
 It has no code dependencies. Markdown rendering is accomplished using command line utilities and [GitHub's markdown API](http://developer.github.com/v3/markdown/). Serving of the rendered HTML files uses a simple Python web server, available by default on a Heroku dyno.
 

@@ -1,6 +1,6 @@
 # GitHub Markdown Buildpack
 
-This [Heroku buildpack](https://github.com/rwdaigle/heroku-buildpack-github-markdown) allows you to deploy raw markdown file(s) which will get rendered with GitHub's Markdown parser and served via a simple web server. See this project's [README rendered here](http://afternoon-peak-2333.herokuapp.com/).
+This [Heroku buildpack](https://github.com/rwdaigle/heroku-buildpack-github-markdown) allows you to deploy raw markdown file(s) which will get rendered with GitHub's Markdown parser and served via a simple web server. See this project's [README rendered here](http://afternoon-peak-2333.herokuapp.com/README.html).
 
 It has no code dependencies. Markdown rendering is accomplished using command line utilities and [GitHub's markdown API](http://developer.github.com/v3/markdown/). Serving of the rendered HTML files uses a simple Python web server, available by default on a Heroku dyno.
 
@@ -16,8 +16,6 @@ In the (git-enabled) directory where your article(s) exist, run the following:
 
 ```bash
 $ heroku create -b git://github.com/rwdaigle/heroku-buildpack-github-markdown.git
-$ heroku config:set STYLESHEET_URL=https://gist.github.com/raw/4579178/styles.css
-$ heroku labs:enable user-env-compile
 $ git push heroku master
 $ heroku open
 ```
@@ -35,12 +33,20 @@ $ git push heroku master
 
 ## Stylesheet
 
+By default the stylesheet used is located at: https://gist.github.com/4579178. If you want to use a custom stylesheet you will need to set a config var on the Heroku app and use a Heroku labs feature so the var will be available at build time.
+
+```bash
+$ heroku labs:enable user-env-compile
+$ heroku config:set STYLESHEET_URL=https://gist.github.com/raw/4570328/styles.css
+```
+
 Because the stylesheet location is embedded at build-time you will need to force a rebuild if you want to change the stylesheet:
 
 ```bash
-$ heroku config:set STYLESHEET_URL=https://gist.github.com/raw/4570328/styles.css
 $ git commit --allow-empty -m "Force rebuild"
 $ git push heroku master
 ```
+
+## Notes
 
 While this buildpack is completely functional it is mostly a proof of concept. Please send any interesting derivatives to [@rwdaigle](https://twitter.com/rwdaigle).

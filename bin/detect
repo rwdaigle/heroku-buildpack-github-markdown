@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f $1/*.md ]; then
+if ls *.md &> /dev/null; then
   echo "GitHub Markdown"
   exit 0
 else
